@@ -10,8 +10,12 @@
   const port = process.env.CARBONE_PORT || 3030;
 
 
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json({limit: '50mb', type: 'application/json'}));
+  app.use(bodyParser.urlencoded({ 
+  extended: true, 
+  parameterLimit: 100000,
+  limit: '50mb',
+  }));
 
   app.post('/render', function(request, response) {
       const data = request.body.data
@@ -21,7 +25,8 @@
       try {
           carbone.render(template, data, options, function(err, result) {
               if (err) return console.log(err);
-              fs.writeFileSync(path + 'output/' + reportname, result);
+              fs.writeFileSync('/home/node/output/' + reportname, result);
+			  
           });
 
       } catch (err) {
@@ -30,4 +35,4 @@
       response.send(reportname);
   })
 
-  app.listen(port, () => console.log(`Carbone wrapper listenning on port ${port}!`));
+  app.listen(port, () => console.log(`Carbone asdfsd wrapper listenning on port ${port}!`));

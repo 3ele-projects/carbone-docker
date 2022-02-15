@@ -1,5 +1,5 @@
 {
-  "name": "Lightweb Media carbone-docker",
+  "name": "carbone-docker",
   "version": "0.1.0",
   "description": "All what you need to build a standalone carbone.io Docker image",
   "main": "index.js",
