@@ -14,12 +14,17 @@ WORKDIR /home/node
 COPY package.json .
 RUN npm install
 COPY index.js .
+#RUN mkdir output
 
-RUN mkdir output
+COPY package.json .
 
+RUN mkdir output 
 RUN mkdir templates
+#RUN chown reporter output
+#RUN chown reporter templates
+#RUN chmod 755 output
+#RUN chmod 775 -R output
 #COPY templates ./templates/
-
-
-ENTRYPOINT ["node","index.js"]
+#User reporter
+ENTRYPOINT ["node","/home/node/index.js"]
 
