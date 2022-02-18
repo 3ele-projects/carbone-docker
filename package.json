@@ -1,9 +1,9 @@
 {
-  "name": "Lightweb Media carbone-docker",
+  "name": "carbone-docker",
   "version": "0.1.0",
   "description": "All what you need to build a standalone carbone.io Docker image",
   "main": "index.js",
-  "author": "Sebastian Weiss",
+  "author": "Florian Bezagu <florian@bezagu.com>",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",

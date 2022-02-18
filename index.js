@@ -8,8 +8,6 @@
   const bodyParser = require(`body-parser`);
   const app = express();
   const port = process.env.CARBONE_PORT || 3030;
-
-
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -21,11 +19,12 @@
       try {
           carbone.render(template, data, options, function(err, result) {
               if (err) return console.log(err);
-              fs.writeFileSync(path + 'output/' + reportname, result);
+              fs.writeFileSync('output/' + reportname, result);
           });
 
       } catch (err) {
-          console.error(err)
+       
+        response.send(err);
       }
       response.send(reportname);
   })

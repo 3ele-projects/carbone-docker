@@ -11,9 +11,10 @@ WORKDIR /tmp/LibreOffice_7.1.4.1_Linux_x86-64_deb/DEBS
 RUN dpkg -i *.deb
 
 WORKDIR /home/node
+COPY package.json .
 RUN npm install
 COPY index.js .
-COPY package.json .
+
 RUN mkdir output
 
 RUN mkdir templates
